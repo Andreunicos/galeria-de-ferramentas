@@ -1,0 +1,19 @@
+# Publica o instalador (e o latest.yml que a galeria usa para se atualizar) a cada tag v*.
+# Mudou só um app em apps/? NÃO precisa de tag: a galeria baixa direto da branch main.
+name: release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install
+      - run: npx electron-builder --win --publish always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

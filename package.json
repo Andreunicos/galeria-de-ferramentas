@@ -1,0 +1,34 @@
+{
+  "name": "galeria-de-ferramentas",
+  "productName": "Galeria de Ferramentas",
+  "version": "0.1.0",
+  "description": "Galeria de mini-apps que se atualiza sozinha pelo GitHub",
+  "main": "main.js",
+  "author": "Andreunicos",
+  "license": "UNLICENSED",
+  "private": true,
+  "galeria": { "repo": "Andreunicos/galeria-de-ferramentas", "branch": "main" },
+  "scripts": {
+    "start": "electron .",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "electron-updater": "6.8.11",
+    "ffmpeg-static": "5.3.0"
+  },
+  "devDependencies": {
+    "electron": "45.3.2",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "com.andreunicos.galeria",
+    "productName": "Galeria de Ferramentas",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "sync.js", "ui/**", "package.json"],
+    "extraResources": [{ "from": "apps", "to": "apps" }],
+    "asarUnpack": ["node_modules/ffmpeg-static/**"],
+    "win": { "target": "nsis" },
+    "nsis": { "oneClick": true, "perMachine": false },
+    "publish": { "provider": "github", "owner": "Andreunicos", "repo": "galeria-de-ferramentas", "releaseType": "release" }
+  }
+}

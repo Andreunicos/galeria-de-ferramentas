@@ -1,0 +1,7 @@
+{
+  "name": "Conversor WAV",
+  "icon": "🎚️",
+  "desc": "Converte qualquer áudio (mp3, ogg, flac, m4a…) para WAV, em lote e com pastas inteiras.",
+  "order": 1,
+  "backend": "backend.js"
+}
