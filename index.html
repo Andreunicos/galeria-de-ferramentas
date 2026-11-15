@@ -1,27 +1,15 @@
 <!doctype html>
-<!-- Preview da galeria no navegador (GameForge). O app de verdade usa ui/index.html; aqui a mesma interface roda sobre preview.js. -->
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Galeria de Ferramentas</title>
-<link rel="stylesheet" href="ui/ui.css">
-<style>#frame { position:fixed; top:52px; left:0; width:100%; height:calc(100% - 52px); border:0; background:var(--bg); }</style>
+<style>body{font:15px/1.6 system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 20px;color:#1b1d22}@media(prefers-color-scheme:dark){body{background:#14161a;color:#e8eaee}}code{background:#8883;padding:1px 6px;border-radius:4px}</style>
 </head>
 <body>
-<header>
-  <button id="back" hidden>← Galeria</button>
-  <div class="brand"><span id="title">Galeria de Ferramentas</span> <small id="ver"></small></div>
-  <div id="upText" class="up-text"></div>
-  <button id="upInstall" class="primary" hidden>Reiniciar e atualizar</button>
-  <button id="upCheck">Verificar atualizações</button>
-  <div id="upProgress" class="progress" hidden><i></i></div>
-</header>
-<main id="home">
-  <div id="grid"></div>
-  <p id="empty" class="muted" hidden>Nenhum app por aqui ainda.</p>
-</main>
-<script src="preview.js"></script>
-<script src="ui/ui.js"></script>
+<h1>Galeria de Ferramentas</h1>
+<p>Isto é um <b>aplicativo instalado</b>, não um site: não tem preview aqui.</p>
+<p>Para testar uma mudança: peça ao André para <b>upar</b>. Em segundos o app instalado já mostra o que mudou (botão "Verificar atualizações" força na hora).</p>
+<p>Instalar: github.com/Andreunicos/galeria-de-ferramentas/releases/latest</p>
 </body>
 </html>

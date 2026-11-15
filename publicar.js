@@ -11,14 +11,15 @@ const path = require('path');
 
 const env = { ...process.env, GIT_DIR: path.join(os.homedir(), '.galeria-git'), GIT_WORK_TREE: __dirname };
 const git = (...a) => execFileSync('git', a, { cwd: __dirname, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] }).trim();
-const msg = process.argv[2] || 'atualização';
+const msg = process.argv.slice(2).find(a => !a.startsWith('--')) || 'atualização';
+const force = process.argv.includes('--instalador'); // força instalador novo mesmo sem mudar a casca
 
 git('add', '-A');
 if (git('status', '--porcelain')) git('commit', '-m', msg);
 
 let last = '';
 try { last = git('describe', '--tags', '--abbrev=0'); } catch { /* ainda sem tag */ }
-const shellChanged = !last || git('diff', '--name-only', last, 'HEAD').split('\n')
+const shellChanged = force || !last || git('diff', '--name-only', last, 'HEAD').split('\n')
   .some(f => /^(main|preload|sync)\.js$|^ui\/|^package\.json$/.test(f));
 
 if (!shellChanged) {
