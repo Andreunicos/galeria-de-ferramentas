@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- Preview da galeria no navegador (GameForge). O app de verdade usa ui/index.html; aqui a mesma interface roda sobre preview.js. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galeria de Ferramentas</title>
+<link rel="stylesheet" href="ui/ui.css">
+<style>#frame { position:fixed; top:52px; left:0; width:100%; height:calc(100% - 52px); border:0; background:var(--bg); }</style>
+</head>
+<body>
+<header>
+  <button id="back" hidden>← Galeria</button>
+  <div class="brand"><span id="title">Galeria de Ferramentas</span> <small id="ver"></small></div>
+  <div id="upText" class="up-text"></div>
+  <button id="upInstall" class="primary" hidden>Reiniciar e atualizar</button>
+  <button id="upCheck">Verificar atualizações</button>
+  <div id="upProgress" class="progress" hidden><i></i></div>
+</header>
+<main id="home">
+  <div id="grid"></div>
+  <p id="empty" class="muted" hidden>Nenhum app por aqui ainda.</p>
+</main>
+<script src="preview.js"></script>
+<script src="ui/ui.js"></script>
+</body>
+</html>
