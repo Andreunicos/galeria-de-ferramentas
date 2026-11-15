@@ -1,13 +1,16 @@
 {
   "name": "galeria-de-ferramentas",
   "productName": "Galeria de Ferramentas",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Galeria de mini-apps que se atualiza sozinha pelo GitHub",
   "main": "main.js",
   "author": "Andreunicos",
   "license": "UNLICENSED",
   "private": true,
-  "galeria": { "repo": "Andreunicos/galeria-de-ferramentas", "branch": "main" },
+  "galeria": {
+    "repo": "Andreunicos/galeria-de-ferramentas",
+    "branch": "main"
+  },
   "scripts": {
     "start": "electron .",
     "test": "node test.js"
@@ -23,12 +26,37 @@
   "build": {
     "appId": "com.andreunicos.galeria",
     "productName": "Galeria de Ferramentas",
-    "directories": { "output": "dist" },
-    "files": ["main.js", "preload.js", "sync.js", "ui/**", "package.json"],
-    "extraResources": [{ "from": "apps", "to": "apps" }],
-    "asarUnpack": ["node_modules/ffmpeg-static/**"],
-    "win": { "target": "nsis" },
-    "nsis": { "oneClick": true, "perMachine": false },
-    "publish": { "provider": "github", "owner": "Andreunicos", "repo": "galeria-de-ferramentas", "releaseType": "release" }
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "sync.js",
+      "ui/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "apps",
+        "to": "apps"
+      }
+    ],
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "Andreunicos",
+      "repo": "galeria-de-ferramentas",
+      "releaseType": "release"
+    }
   }
 }
