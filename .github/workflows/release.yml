@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm install
-      - run: npx electron-builder --win --publish always
+      - run: npx electron-builder --win --publish never
+      # electron-builder publicando sozinho corre em paralelo e perde arquivos; gh sobe tudo de uma vez
+      - run: gh release create ${{ github.ref_name }} dist/*.exe dist/*.blockmap dist/latest.yml --title "${{ github.ref_name }}" --notes "Galeria de Ferramentas ${{ github.ref_name }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
