@@ -4,8 +4,8 @@
 // Lista de apps = apps/apps.json (lista de nomes de pasta; mantenha em dia ao criar um app).
 const NO_BACKEND = () => Promise.reject(new Error('Só funciona no app instalado (o preview não tem backend).'));
 
-if (window.parent !== window) {
-  // dentro do iframe: um app aberto
+if (!document.getElementById('grid')) {
+  // página sem a grade da galeria = um app aberto no iframe (o próprio preview também roda em iframe)
   window.galeria = { call: NO_BACKEND, setBusy() {}, pathsFromFiles: () => [] };
 } else {
   const handlers = { status: [], apps: [], nav: [] };

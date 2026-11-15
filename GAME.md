@@ -9,7 +9,8 @@
 ## Como funciona
 - Cada app é uma pasta `apps/<nome>/` com `app.json` (name, icon, desc, order, backend), `index.html` e, se precisar de arquivos/ffmpeg/janelas do Windows, um `backend.js`.
 - O app chama o backend com `galeria.call("funcao", ...args)` (ver `apps/conversor-wav/` como modelo). Dentro do `backend.js`: `module.exports = ({ dialog, shell, win, ffmpegPath, appDir }) => ({ funcao })`.
-- Atualização: mexeu em `apps/` e publicou (`node publicar.js "msg"`) → todos recebem em segundos, sem reinstalar. Mexeu na casca (main.js, ui/, preload.js) → sobe `version` em package.json, publica e `node publicar.js --tag` (gera instalador novo; a galeria se atualiza sozinha).
+- "Upar" (só o André faz): `node publicar.js "msg"`. Mudou só apps/ → todos recebem em segundos. Mudou a casca (main.js, ui/, preload.js, sync.js, package.json) → ele sobe a versão sozinho, o GitHub gera o instalador e a galeria se reinstala sozinha. Link fixo de download: github.com/Andreunicos/galeria-de-ferramentas/releases/latest
+- A galeria é um APLICATIVO instalado (Electron), não um site. O index.html da raiz é só o preview do GameForge (preview.js finge o app no navegador).
 - Dev local: `npm install` e `npm start` (use uma CÓPIA fora da sala: node_modules não deve ficar aqui).
 
 ## Decisões já tomadas
